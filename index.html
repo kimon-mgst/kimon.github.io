@@ -71,11 +71,19 @@
 <div id="chara-modal" class="modal" onclick="closeChara()">
   <div class="modal-content" onclick="event.stopPropagation()">
     <span class="close" onclick="closeChara()">×</span>
+
     <img id="modal-img">
+
+    <div class="costume-buttons">
+      <button onclick="changeCostume('images/azuma_uniform.jpg')">制服</button>
+      <button onclick="changeCostume('images/azuma_casual.jpg')">私服</button>
+    </div>
+
     <h3 id="modal-name"></h3>
     <p id="modal-text"></p>
   </div>
 </div>
+
 
 <script src="script.js"></script>
 
