@@ -1,3 +1,14 @@
+:root {
+  --bg-main: #000000;
+  --bg-sub: #111111;
+  --text-main: #ffffff;
+  --text-sub: #cccccc;
+
+  --accent: #4fa3ff;      /* メインカラー */
+  --accent-dark: #2b6cb0; /* 濃いめ */
+}
+
+
 * {
   margin: 0;
   padding: 0;
