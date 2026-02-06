@@ -1,16 +1,16 @@
 let currentImages = {};
 
-function openChara(name, text, images, color) {
+function openChara(name, text, images, color, grade, className) {
   document.getElementById("modal-name").textContent = name;
   document.getElementById("modal-text").textContent = text;
+  document.getElementById("modal-grade").textContent = "学年：" + grade;
+  document.getElementById("modal-class").textContent = "クラス：" + className;
 
-  currentImages = images; // ← 今開いてるキャラの画像セット
+  currentImages = images;
   document.getElementById("modal-img").src = images.uniform;
 
   document.documentElement.style.setProperty("--accent", color);
-
-  const modal = document.getElementById("chara-modal");
-  modal.classList.add("active");
+  document.getElementById("chara-modal").classList.add("active");
 }
 
 function changeCostume(type) {
@@ -20,6 +20,5 @@ function changeCostume(type) {
 }
 
 function closeChara() {
-  const modal = document.getElementById("chara-modal");
-  modal.classList.remove("active");
+  document.getElementById("chara-modal").classList.remove("active");
 }
