@@ -45,14 +45,40 @@
 
 <section id="character" class="section">
   <h2>CHARACTER</h2>
-  <div class="character-list">
 
-    <div class="character">
-      <link rel="stylesheet" href="style.css">
+  <div class="character-list">
+    <div class="character" onclick="openChara(
+      '東馬柊',
+      'ただのメロ。',
+      'images/azumasyu.png'
+    )">
       <img src="images/syu.png" alt="東馬柊">
-      <h3>東馬柊（あずま しゅう）</h3>
-      <p>ただのメロ。</p>
+      <p>東馬柊</p>
     </div>
+
+    <div class="character" onclick="openChara(
+      'キャラ2',
+      '二人目の説明文。',
+      'images/chara2_full.jpg'
+    )">
+      <img src="images/chara2_icon.jpg" alt="キャラ2">
+      <p>キャラ2</p>
+    </div>
+  </div>
+</section>
+
+<!-- キャラ詳細モーダル -->
+<div id="chara-modal" class="modal" onclick="closeChara()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close" onclick="closeChara()">×</span>
+    <img id="modal-img">
+    <h3 id="modal-name"></h3>
+    <p id="modal-text"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
 
   </div>
 </section>
