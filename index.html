@@ -2,10 +2,9 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>身内創作「カスーモ帝国学園」公式サイト</title>
-  <link rel="stylesheet" href="style.css">
+  <title>カスーモ帝国学園 公式サイト</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -17,30 +16,30 @@
       <li><a href="#news">NEWS</a></li>
       <li><a href="#story">STORY</a></li>
       <li><a href="#character">CHARACTER</a></li>
-      <li><a href="#staff">STAFF</a></li>
     </ul>
   </nav>
 </header>
 
 <section class="hero">
+  <img src="images/main.jpg" alt="キービジュアル">
   <div class="hero-text">
-    <h2>白線の向こう側</h2>
-    <p>終わらない放課後</p>
+    <h2>青春、ここに開幕。</h2>
+    <p>オリジナル創作学園物語</p>
   </div>
 </section>
 
 <section id="news" class="section">
   <h2>NEWS</h2>
-  <ul class="news-list">
-    <li>2026.02.01 公式サイトオープンしてみた</li>
-    <li>2026.01.20 キービジュアル公開したい</li>
+  <ul>
+    <li>2026.02.01 公式サイト公開</li>
   </ul>
 </section>
 
 <section id="story" class="section dark">
   <h2>STORY</h2>
   <p>
-    なんかアニメっぽいのしたいよね──。
+    カスーモ帝国学園。<br>
+    少し変で、少し眩しい、彼らの物語。
   </p>
 </section>
 
@@ -48,72 +47,61 @@
   <h2>CHARACTER</h2>
 
   <div class="character-list">
+
     <div class="character" onclick="openChara(
-  '東馬柊',
-  'ただのメロ。',
-  {
-    uniform: 'images/azumasyu.png',
-    casual: 'images/azumasyu.png'
-  },
-  '#4fa3ff'
-)">
-  <img src="images/syu.png" alt="東馬柊">
-  <p>東馬柊</p>
-</div>
-    
+      '東馬柊',
+      'ただのメロ。',
+      { uniform:'images/azumasyu.png', casual:'images/azumadyu.png' },
+      '#4fa3ff',
+      '3年',
+      'A組'
+    )">
+      <img src="images/syu.png">
+      <p>東馬柊</p>
+    </div>
 
     <div class="character" onclick="openChara(
       '茂谷恒一',
-      'どしはな',
-      {
-        unifrom: 'images/motanikoiti.png',
-        casual: 'images/motanikoiti.png'
-      },
+      'どしはな先輩',
+      { uniform:'images/motanikoiti.png', casual:'images/motanikoiti.png' },
+      '#ff6fae',
+      '3年',
+      'B組'
     )">
-      <img src="images/koiti.png" alt="茂谷恒一">
+      <img src="images/koiti.png">
       <p>茂谷恒一</p>
     </div>
-  </div>
-</section>
-
-<!-- キャラ詳細モーダル -->
-<div id="chara-modal" class="modal" onclick="closeChara()">
-  <div class="modal-content" onclick="event.stopPropagation()">
-    <span class="close" onclick="closeChara()">×</span>
-
-    <img id="modal-img">
-
-    <div class="costume-buttons">
-      <button onclick="changeCostume('uniform')">制服</button>
-　    <button onclick="changeCostume('casual')">私服</button>
-    </div>
-
-    <h3 id="modal-name"></h3>
-    <p id="modal-text"></p>
-  </div>
-</div>
-  <ul class="chara-profile">
-  <li>学年：3年</li>
-  <li>クラス：A組</li>
-  <li>誕生日：4月12日</li>
-</ul>
-
-
-
-<script src="script.js"></script>
-
 
   </div>
-</section>
-
-<section id="staff" class="section dark">
-  <h2>STAFF & CAST</h2>
-  <p>原作：カスーモ<br>制作：みーんな</p>
 </section>
 
 <footer class="footer">
   <p>© カスーモ帝国学園</p>
 </footer>
 
+<!-- モーダル -->
+<div id="chara-modal" class="modal" onclick="closeChara()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close" onclick="closeChara()">×</span>
+
+    <img id="modal-img" class="modal-img">
+
+    <h3 id="modal-name"></h3>
+
+    <ul class="chara-profile">
+      <li id="modal-grade"></li>
+      <li id="modal-class"></li>
+    </ul>
+
+    <p id="modal-text"></p>
+
+    <div class="costume-buttons">
+      <button onclick="changeCostume('uniform')">制服</button>
+      <button onclick="changeCostume('casual')">私服</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
