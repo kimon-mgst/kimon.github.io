@@ -1,51 +1,84 @@
 :root {
-  --bg-main: #000000;
-  --bg-sub: #111111;
-  --text-main: #ffffff;
-  --text-sub: #cccccc;
+  --bg-main: #f7fbff;
+  --bg-sub: #ffffff;
+  --bg-accent: #eaf4ff;
 
-  --accent: #4fa3ff;      /* メインカラー */
-  --accent-dark: #2b6cb0; /* 濃いめ */
+  --text-main: #1a1a1a;
+  --text-sub: #555555;
+
+  --accent: #4fa3ff;
+  --accent-dark: #2b6cb0;
 }
 
-
+/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ===== BASE ===== */
 body {
+  font-family: "Noto Sans JP", sans-serif;
   background: var(--bg-main);
   color: var(--text-main);
+  padding-top: 80px;
 }
-
 
 /* ===== HEADER ===== */
 .header {
-  background: rgba(0,0,0,0.7);
-  border-bottom: 1px solid var(--accent);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px 40px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  border-bottom: 1px solid #dbeafe;
 }
 
-
 .logo {
-  font-size: 24px;
-  letter-spacing: 0.2em;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.15em;
+  color: var(--accent-dark);
+}
+
+.nav {
+  list-style: none;
+  display: flex;
+  gap: 24px;
 }
 
 .nav a {
+  text-decoration: none;
+  font-size: 14px;
   color: var(--text-main);
+  position: relative;
 }
 
-.nav a:hover {
-  color: var(--accent);
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s;
 }
 
+.nav a:hover::after {
+  width: 100%;
+}
 
 /* ===== HERO ===== */
 .hero {
-  height: 100vh;
-  background-image: ;
+  height: calc(100vh - 80px);
+  background-image: url("images/main.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -55,7 +88,10 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(
+    rgba(255,255,255,0.1),
+    rgba(0,0,0,0.35)
+  );
 }
 
 .hero-text {
@@ -64,29 +100,38 @@ body {
   text-align: center;
   top: 50%;
   transform: translateY(-50%);
-  animation: fadeIn 2s ease forwards;
+  animation: fadeIn 1.8s ease forwards;
 }
 
 .hero-text h2 {
-  font-size: 36px;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 38px;
+  letter-spacing: 0.1em;
   margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.hero-text p {
+  color: #f0f8ff;
 }
 
 /* ===== SECTION ===== */
 .section {
-  padding: 120px 40px;
-}
-
-.section h2 {
-  font-size: 28px;
-  margin-bottom: 30px;
-  letter-spacing: 0.2em;
-}
-
-.dark {
+  padding: 100px 40px;
   background: var(--bg-sub);
 }
 
+.section:nth-of-type(even) {
+  background: var(--bg-accent);
+}
+
+.section h2 {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 26px;
+  margin-bottom: 30px;
+  letter-spacing: 0.2em;
+  color: var(--accent-dark);
+}
 
 /* ===== NEWS ===== */
 .news-list {
@@ -94,25 +139,99 @@ body {
 }
 
 .news-list li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  color: var(--text-sub);
 }
 
-/* ===== CHARACTER ===== */
+/* ===== CHARACTER LIST ===== */
 .character-list {
   display: flex;
   gap: 40px;
+  flex-wrap: wrap;
 }
 
 .character {
-  width: 200px;
+  cursor: pointer;
   text-align: center;
 }
 
 .character img {
-  width: 200px;
-  height: 280px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
   object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s;
+}
+
+.character:hover img {
+  transform: translateY(-5px);
+}
+
+.character p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* ===== MODAL ===== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 200;
+}
+
+.modal-content {
+  max-width: 720px;
+  margin: 60px auto;
+  background: #ffffff;
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  border-radius: 8px;
+}
+
+.modal-content img {
+  max-height: 70vh;
+  object-fit: contain;
   margin-bottom: 15px;
+}
+
+.modal-content h3 {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  margin-bottom: 8px;
+  color: var(--accent-dark);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ===== COSTUME BUTTON ===== */
+.costume-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px 0 15px;
+}
+
+.costume-buttons button {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--accent);
+  background: #ffffff;
+  color: var(--accent-dark);
+  cursor: pointer;
+}
+
+.costume-buttons button:hover {
+  background: var(--accent);
+  color: #ffffff;
 }
 
 /* ===== FOOTER ===== */
@@ -120,7 +239,8 @@ body {
   padding: 40px;
   text-align: center;
   font-size: 12px;
-  background: #000;
+  background: #ffffff;
+  color: var(--text-sub);
 }
 
 /* ===== ANIMATION ===== */
@@ -129,103 +249,8 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
-
-  /* ===== CHARACTER LIST ===== */
-.character-list {
-  display: flex;
-  gap: 30px;
-}
-
-.character {
-  cursor: pointer;
-  text-align: center;
-}
-
-.character img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  transition: transform 0.3s;
-}
-
-.character:hover img {
-  transform: scale(1.05);
-}
-
-/* ===== MODAL ===== */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  z-index: 200;
-}
-
-.modal-content {
-  max-width: 600px;
-  margin: 80px auto;
-  background: #111;
-  padding: 30px;
-  text-align: center;
-  position: relative;
-}
-
-.modal-content img {
-  width: 100%;
-  max-height: 500px;
-  object-fit: contain;
-  margin-bottom: 20px;
-}
-
-.close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 24px;
-  cursor: pointer;
-}
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
-.modal-content {
-  max-width: 700px;
-}
-
-.modal-content img {
-  max-height: 70vh;
-}
-
-/* 制服ボタン */
-.costume-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 15px 0;
-}
-
-.costume-buttons button {
-  background: var(--bg-sub);
-  color: var(--text-main);
-  border: 1px solid var(--accent);
-}
-
-.costume-buttons button:hover {
-  background: var(--accent);
-  color: #000;
-}
-
-
-body {
-  padding-top: 80px;
-}
-
-
-.costume-buttons button:hover {
-  background: #444;
-}
-
