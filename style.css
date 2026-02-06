@@ -10,6 +10,7 @@ body {
   color: #fff;
 }
 
+/* ===== HEADER ===== */
 .header {
   position: fixed;
   top: 0;
@@ -39,16 +40,29 @@ body {
   font-size: 14px;
 }
 
+/* ===== HERO ===== */
 .hero {
   height: 100vh;
-  background: linear-gradient(
-    rgba(0,0,0,0.5),
-    rgba(0,0,0,0.9)
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-image: url("images/main.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
   text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: fadeIn 2s ease forwards;
 }
 
 .hero-text h2 {
@@ -56,6 +70,7 @@ body {
   margin-bottom: 10px;
 }
 
+/* ===== SECTION ===== */
 .section {
   padding: 120px 40px;
 }
@@ -70,6 +85,7 @@ body {
   background: #111;
 }
 
+/* ===== NEWS ===== */
 .news-list {
   list-style: none;
 }
@@ -78,6 +94,7 @@ body {
   margin-bottom: 10px;
 }
 
+/* ===== CHARACTER ===== */
 .character-list {
   display: flex;
   gap: 40px;
@@ -88,16 +105,29 @@ body {
   text-align: center;
 }
 
-.chara-img {
+.character img {
   width: 200px;
   height: 280px;
-  background: #333;
+  object-fit: cover;
   margin-bottom: 15px;
 }
 
+/* ===== FOOTER ===== */
 .footer {
   padding: 40px;
   text-align: center;
   font-size: 12px;
   background: #000;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
