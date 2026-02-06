@@ -43,7 +43,7 @@ body {
 /* ===== HERO ===== */
 .hero {
   height: 100vh;
-  background-image: url("images/syu.png");
+  background-image: url("images/.png");
   background-size: cover;
   background-position: center;
   position: relative;
