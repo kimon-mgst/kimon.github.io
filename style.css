@@ -213,6 +213,11 @@ body {
   cursor: pointer;
 }
 
+body {
+  padding-top: 80px;
+}
+
+
 .costume-buttons button:hover {
   background: #444;
 }
