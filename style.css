@@ -254,3 +254,81 @@ body {
     transform: translateY(0);
   }
 }
+
+/* ===== SMARTPHONE ===== */
+@media screen and (max-width: 768px) {
+
+  body {
+    padding-top: 64px;
+  }
+
+  /* HEADER */
+  .header {
+    padding: 12px 20px;
+  }
+
+  .logo {
+    font-size: 18px;
+    letter-spacing: 0.1em;
+  }
+
+  .nav {
+    gap: 14px;
+  }
+
+  .nav a {
+    font-size: 12px;
+  }
+
+  /* HERO */
+  .hero {
+    height: calc(100vh - 64px);
+  }
+
+  .hero-text h2 {
+    font-size: 26px;
+  }
+
+  .hero-text p {
+    font-size: 13px;
+  }
+
+  /* SECTION */
+  .section {
+    padding: 70px 20px;
+  }
+
+  .section h2 {
+    font-size: 22px;
+    letter-spacing: 0.15em;
+  }
+
+  /* CHARACTER */
+  .character-list {
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .character img {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* MODAL */
+  .modal-content {
+    width: 90%;
+    margin: 40px auto;
+    padding: 20px;
+  }
+
+  .modal-content img {
+    max-height: none;
+    width: 100%;
+  }
+
+  /* COSTUME BUTTON */
+  .costume-buttons {
+    flex-wrap: wrap;
+  }
+
+}
