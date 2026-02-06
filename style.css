@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 24px;
+  letter-spacing: 0.2em;
+}
+
+.nav {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.hero {
+  height: 100vh;
+  background: linear-gradient(
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.9)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-text h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.section {
+  padding: 120px 40px;
+}
+
+.section h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  letter-spacing: 0.2em;
+}
+
+.dark {
+  background: #111;
+}
+
+.news-list {
+  list-style: none;
+}
+
+.news-list li {
+  margin-bottom: 10px;
+}
+
+.character-list {
+  display: flex;
+  gap: 40px;
+}
+
+.character {
+  width: 200px;
+  text-align: center;
+}
+
+.chara-img {
+  width: 200px;
+  height: 280px;
+  background: #333;
+  margin-bottom: 15px;
+}
+
+.footer {
+  padding: 40px;
+  text-align: center;
+  font-size: 12px;
+  background: #000;
+}
