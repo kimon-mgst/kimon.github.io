@@ -7,15 +7,11 @@ function openChara(name, text, img, color) {
 
   document.documentElement.style.setProperty("--accent", color);
 
-  document.getElementById("chara-modal").style.display = "block";
-}
-
-
-function changeCostume(img) {
-  document.getElementById("modal-img").src = img;
-  currentImg = img;
+  const modal = document.getElementById("chara-modal");
+  modal.classList.add("active");
 }
 
 function closeChara() {
-  document.getElementById("chara-modal").style.display = "none";
+  const modal = document.getElementById("chara-modal");
+  modal.classList.remove("active");
 }
