@@ -322,3 +322,28 @@ body {
     padding: 20px;
   }
 }
+.modal-img {
+  max-height: 70vh;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.modal-img.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.chara-switch {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.chara-switch button {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--accent-dark);
+}
