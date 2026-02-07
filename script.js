@@ -1,17 +1,18 @@
 /* =========================
-   キャラデータ
+   CHARACTER DATA（完成版）
 ========================= */
 
 const charaData = [
   {
-    id: "iida",
+    id: "amon",
     name: "飯田亜門",
-    text: "不憫。",
+    yomi: "いいだ",
+    text: "不憫",
     grade: "3年",
     className: "C組",
     color: "#e74fff",
+    icon: "images/amon.png",
     images: {
-      icon: "images/chara3.png",
       uniform: "images/amon_uniform.png",
       casual: "images/amon_casual.png"
     }
@@ -19,25 +20,27 @@ const charaData = [
   {
     id: "azuma",
     name: "東馬柊",
-    text: "ただのメロ。",
+    yomi: "あずま",
+    text: "メロ",
     grade: "3年",
     className: "A組",
     color: "#4fa3ff",
+    icon: "images/syu.png",
     images: {
-      icon: "images/syu.png",
       uniform: "images/azumasyu.png",
       casual: "images/azumadyu.png"
     }
   },
   {
-    id: "motani-kou",
+    id: "motani",
     name: "茂谷恒一",
-    text: "どしはな先輩。",
+    yomi: "もたに",
+    text: "どしはな",
     grade: "3年",
     className: "B組",
     color: "#4fff83",
+    icon: "images/koiti.png",
     images: {
-      icon: "images/koiti.png",
       uniform: "images/motanikoiti.png",
       casual: "images/motanikoiti.png"
     }
@@ -48,25 +51,27 @@ const charaData = [
   {
     id: "onizuka",
     name: "鬼塚門斗",
-    text: "強気で雑、だけど情に厚い。",
+    yomi: "おにづか",
+    text: "ヤクザ",
     grade: "3年",
     className: "A組",
     color: "#5c398a",
+    icon: "images/mondo.png",
     images: {
-      icon: "images/chara4.png",
       uniform: "images/onizuka_uniform.png",
       casual: "images/onizuka_casual.png"
     }
   },
-  {
+   {
     id: "yuki",
     name: "結城ひより",
-    text: "静かで芯が強い。",
+    yomi: "ゆうき",
+    text: "母",
     grade: "3年",
     className: "C組",
     color: "#5574bd",
+    icon: "images/hiyori.png",
     images: {
-      icon: "images/chara5.png",
       uniform: "images/yuki_uniform.png",
       casual: "images/yuki_casual.png"
     }
@@ -74,12 +79,13 @@ const charaData = [
   {
     id: "sanzenin",
     name: "三千院朔",
-    text: "理屈派で距離感が独特。",
+    yomi: "さんぜんいん",
+    text: "世界",
     grade: "2年",
     className: "F組",
     color: "#c35442",
+    icon: "images/saku.png",
     images: {
-      icon: "images/chara6.png",
       uniform: "images/saku_uniform.png",
       casual: "images/saku_casual.png"
     }
@@ -87,12 +93,13 @@ const charaData = [
   {
     id: "mochizuki",
     name: "望月澪",
-    text: "明るくて風みたいな存在。",
+    yomi: "もちづき",
+    text: "可愛い子ぶる",
     grade: "2年",
     className: "F組",
     color: "#b1eeff",
+    icon: "images/mio.png",
     images: {
-      icon: "images/chara7.png",
       uniform: "images/mio_uniform.png",
       casual: "images/mio_casual.png"
     }
@@ -100,12 +107,13 @@ const charaData = [
   {
     id: "uryu",
     name: "瓜生蔓奈",
-    text: "空気を読むのがうまい。",
+    yomi: "うりゅう",
+    text: "稲妻",
     grade: "1年",
     className: "C組",
     color: "#5a78bf",
+    icon: "images/uriu.png",
     images: {
-      icon: "images/chara8.png",
       uniform: "images/uriu_uniform.png",
       casual: "images/uriu_casual.png"
     }
@@ -113,12 +121,13 @@ const charaData = [
   {
     id: "suzuki",
     name: "鈴木凛",
-    text: "負けず嫌いな努力家。",
+    yomi: "すずき",
+    text: "スズラニアン",
     grade: "1年",
     className: "D組",
     color: "#4850bc",
+    icon: "images/rin.png",
     images: {
-      icon: "images/chara9.png",
       uniform: "images/rin_uniform.png",
       casual: "images/rin_casual.png"
     }
@@ -126,12 +135,13 @@ const charaData = [
   {
     id: "motani-nao",
     name: "茂谷直葉",
-    text: "恒一の妹。冷静。",
+    yomi: "もたに",
+    text: "冷静",
     grade: "1年",
     className: "C組",
     color: "#6c4c76",
+    icon: "images/naoha.png",
     images: {
-      icon: "images/chara10.png",
       uniform: "images/naoha_uniform.png",
       casual: "images/naoha_casual.png"
     }
@@ -139,20 +149,20 @@ const charaData = [
 ];
 
 /* =========================
-   状態管理
+   STATE
 ========================= */
 
 let currentIndex = 0;
 let currentImages = {};
-let displayList = [...charaData];
+let defaultOrder = [...charaData];
 
 /* =========================
-   キャラ一覧生成
+   LIST RENDER
 ========================= */
 
-function renderCharacterList(list = displayList) {
-  const container = document.getElementById("character-list");
-  container.innerHTML = "";
+function renderCharacterList(list) {
+  const area = document.getElementById("character-list");
+  area.innerHTML = "";
 
   list.forEach((c, index) => {
     const div = document.createElement("div");
@@ -160,20 +170,41 @@ function renderCharacterList(list = displayList) {
     div.onclick = () => openCharaByIndex(index);
 
     div.innerHTML = `
-      <img src="${c.images.icon}" alt="${c.name}">
+      <img src="${c.icon}" alt="${c.name}">
       <p>${c.name}</p>
     `;
-
-    container.appendChild(div);
+    area.appendChild(div);
   });
 }
 
 /* =========================
-   モーダル操作
+   SORT
+========================= */
+
+function sortChara(type) {
+  let sorted = [...charaData];
+
+  if (type === "grade") {
+    sorted.sort((a, b) => b.grade.localeCompare(a.grade, "ja"));
+  }
+
+  if (type === "name") {
+    sorted.sort((a, b) => a.yomi.localeCompare(b.yomi, "ja"));
+  }
+
+  if (type === "default") {
+    sorted = [...defaultOrder];
+  }
+
+  renderCharacterList(sorted);
+}
+
+/* =========================
+   MODAL
 ========================= */
 
 function openCharaByIndex(index) {
-  const c = displayList[index];
+  const c = charaData[index];
   currentIndex = index;
   currentImages = c.images;
 
@@ -191,7 +222,6 @@ function openCharaByIndex(index) {
   }, 150);
 
   document.getElementById("chara-modal").classList.add("active");
-  history.replaceState(null, "", `#chara=${c.id}`);
 }
 
 function changeCostume(type) {
@@ -205,50 +235,21 @@ function changeCostume(type) {
 }
 
 function prevChara() {
-  openCharaByIndex((currentIndex - 1 + displayList.length) % displayList.length);
+  openCharaByIndex((currentIndex - 1 + charaData.length) % charaData.length);
 }
 
 function nextChara() {
-  openCharaByIndex((currentIndex + 1) % displayList.length);
+  openCharaByIndex((currentIndex + 1) % charaData.length);
 }
 
 function closeChara() {
   document.getElementById("chara-modal").classList.remove("active");
-  history.replaceState(null, "", location.pathname);
 }
 
 /* =========================
-   並び替え
-========================= */
-
-function sortChara(type) {
-  if (type === "default") {
-    displayList = [...charaData];
-  }
-  if (type === "grade") {
-    displayList = [...charaData].sort((a, b) =>
-      a.grade.localeCompare(b.grade)
-    );
-  }
-  if (type === "name") {
-    displayList = [...charaData].sort((a, b) =>
-      a.name.localeCompare(b.name)
-    );
-  }
-  renderCharacterList();
-}
-
-/* =========================
-   初期化
+   INIT
 ========================= */
 
 window.addEventListener("load", () => {
-  renderCharacterList();
-
-  const hash = location.hash;
-  if (hash.startsWith("#chara=")) {
-    const id = hash.replace("#chara=", "");
-    const index = displayList.findIndex(c => c.id === id);
-    if (index !== -1) openCharaByIndex(index);
-  }
+  renderCharacterList(charaData);
 });
