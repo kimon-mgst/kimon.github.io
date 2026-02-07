@@ -217,3 +217,22 @@ body {
     max-height: none;
   }
 }
+
+/* ===== MODAL TEXT FIX ===== */
+.modal-content {
+  max-width: 720px;
+  width: 90%;
+  margin: 60px auto;
+  overflow: hidden;
+}
+
+#modal-text {
+  max-width: 100%;
+  word-break: break-word;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+
+.chara-profile {
+  max-width: 100%;
+}
