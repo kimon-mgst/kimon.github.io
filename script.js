@@ -17,7 +17,7 @@ const charaData = [
     text: "どしはな先輩",
     grade: "3年",
     class: "B組",
-    color: "#ff6fae",
+    color: "#4fff83",
     images: {
       uniform: "images/motanikoiti.png",
       casual: "images/motanikoiti.png"
