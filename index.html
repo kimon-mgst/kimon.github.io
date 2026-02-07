@@ -34,12 +34,12 @@
   <h2>NEWS</h2>
   <ul class="news-list">
     <li>2026.02.01 公式サイト公開してみた</li>
-    <li>2026.01.20 キャラクター情報更新？？？？？る</li>
+    <li>2026.01.20 キャラクター情報更新</li>
   </ul>
 </section>
 
 <!-- ===== STORY ===== -->
-<section id="story" class="section dark">
+<section id="story" class="section">
   <h2>STORY</h2>
   <p>
     カスーモ帝国学園。<br>
@@ -52,49 +52,15 @@
 <section id="character" class="section">
   <h2>CHARACTER</h2>
 
-  <div class="character-list"> 
-    <div class="character" onclick="openCharaByIndex(0)">
-      <img src="images/chara3.png">
-      <p>飯田亜門</p>
-    </div>
-    <div class="character" onclick="openCharaByIndex(1)">
-      <img src="images/syu.png">
-      <p>東馬柊</p>
-    </div>
-    <div class="character" onclick="openCharaByIndex(2)">
-      <img src="images/koiti.png">
-      <p>茂谷恒一</p>
-    </div>
-
-    <div class="character" onclick="openCharaByIndex(3)">
-      <img src="images/chara4.png">
-      <p>鬼塚門斗</p>
-    </div>
-    <div class="character" onclick="openCharaByIndex(4)">
-      <img src="images/chara5.png">
-      <p>結城ひより</p>
-    </div>
-    <div class="character" onclick="openCharaByIndex(5)">
-      <img src="images/chara6.png">
-      <p>三千院朔</p>
-    </div>
-    <div class="character" onclick="openCharaByIndex(6)">
-      <img src="images/chara7.png">
-      <p>望月澪</p>
-    </div>
-    <div class="character" onclick="openCharaByIndex(7)">
-      <img src="images/chara8.png">
-      <p>瓜生蔓奈</p>
-    </div>
-    <div class="character" onclick="openCharaByIndex(8)">
-      <img src="images/chara9.png">
-      <p>鈴木凛</p>
-    </div>
-    <div class="character" onclick="openCharaByIndex(9)">
-      <img src="images/chara10.png">
-      <p>茂谷直葉</p>
-    </div>
+  <!-- 並び替え（必要なければ消してOK） -->
+  <div class="sort-buttons">
+    <button onclick="sortChara('default')">登場順</button>
+    <button onclick="sortChara('grade')">学年順</button>
+    <button onclick="sortChara('name')">名前順</button>
   </div>
+
+  <!-- キャラ一覧（JSが生成） -->
+  <div class="character-list" id="character-list"></div>
 </section>
 
 <!-- ===== FOOTER ===== -->
