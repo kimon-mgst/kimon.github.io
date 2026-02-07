@@ -247,3 +247,100 @@ body {
   max-height: 90vh;
   overflow-y: auto;
 }
+/* ===== COLOR THEME : 青春学園 ===== */
+body {
+  background-color: #f5f7fa;
+  color: #333333;
+}
+
+/* HEADER */
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #d6dde5;
+}
+
+.logo {
+  color: #2f4b73;
+}
+
+.nav a {
+  color: #4a7ebb;
+}
+
+.nav a:hover {
+  color: #2f4b73;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(
+    180deg,
+    #9fc5e8 0%,
+    #f5f7fa 100%
+  );
+}
+
+.hero-text h2 {
+  color: #2f4b73;
+}
+
+.hero-text p {
+  color: #4a7ebb;
+}
+
+/* SECTION */
+.section h2 {
+  color: #2f4b73;
+  border-left: 4px solid #4a7ebb;
+  padding-left: 10px;
+}
+
+/* NEWS */
+.news-list li {
+  border-bottom: 1px dashed #d6dde5;
+}
+
+/* CHARACTER CARD */
+.character-card {
+  background: #ffffff;
+  border: 1px solid #d6dde5;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.character-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* SORT BUTTON */
+.sort-buttons button {
+  background: #ffffff;
+  border: 1px solid #4a7ebb;
+  color: #4a7ebb;
+}
+
+.sort-buttons button:hover {
+  background: #4a7ebb;
+  color: #ffffff;
+}
+
+/* MODAL */
+.modal-content {
+  background: #ffffff;
+  border: 1px solid #d6dde5;
+}
+
+.close {
+  color: #4a7ebb;
+}
+
+.close:hover {
+  color: #2f4b73;
+}
+
+/* FOOTER */
+.footer {
+  background: #ffffff;
+  border-top: 1px solid #d6dde5;
+  color: #666666;
+}
