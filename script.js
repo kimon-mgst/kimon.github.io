@@ -36,7 +36,7 @@ const charaData = [
     }
   },
   // ↓ ここからダミー9人
-  ...Array.from({ length: 8 }, (_, i) => ({
+  ...Array.from({ length: 7 }, (_, i) => ({
     id: `chara${i+3}`,
     name: `キャラ${i+3}`,
     text: "後で設定が入る。",
