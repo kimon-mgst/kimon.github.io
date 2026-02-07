@@ -11,94 +11,51 @@
 
 <header class="header">
   <h1 class="logo">KASUUMO</h1>
-  <nav>
-    <ul class="nav">
-      <li><a href="#news">NEWS</a></li>
-      <li><a href="#story">STORY</a></li>
-      <li><a href="#character">CHARACTER</a></li>
-    </ul>
-  </nav>
 </header>
-
-<section class="hero">
-  <img src="images/main.jpg" alt="キービジュアル">
-  <div class="hero-text">
-    <h2>白線の向こう側</h2>
-    <p>オリジナル創作学園物語</p>
-  </div>
-</section>
-
-<section id="news" class="section">
-  <h2>NEWS</h2>
-  <ul>
-    <li>2026.02.01 公式サイト公開</li>
-  </ul>
-</section>
-
-<section id="story" class="section dark">
-  <h2>STORY</h2>
-  <p>
-    カスーモ帝国学園。<br>
-    少し変で、少し眩しい、彼らの物語。
-  </p>
-</section>
 
 <section id="character" class="section">
   <h2>CHARACTER</h2>
 
   <div class="character-list">
-
-    <div class="character" onclick="openChara(
-      '東馬柊',
-      'ただのメロ。',
-      { uniform:'images/azumasyu.png', casual:'images/azumadyu.png' },
-      '#4fa3ff',
-      '3年',
-      '177cm'
-    )">
-      <img src="images/syu.png">
-      <p>東馬柊</p>
-    </div>
-
-    <div class="character" onclick="openChara(
-      '茂谷恒一',
-      'どしはな先輩',
-      { uniform:'images/motanikoiti.png', casual:'images/motanikoiti.png' },
-      '#4fff83',
-      '3年',
-      '173cm'
-    )">
-      <img src="images/koiti.png">
-      <p>茂谷恒一</p>
-    </div>
-
+    <!-- 10人分 -->
+    <div class="character" onclick="openCharaByIndex(0)"><img src="images/syu.png"><p>東馬柊</p></div>
+    <div class="character" onclick="openCharaByIndex(1)"><img src="images/koiti.png"><p>茂谷恒一</p></div>
+    <div class="character" onclick="openCharaByIndex(2)"><img src="images/chara3.png"><p>キャラ3</p></div>
+    <div class="character" onclick="openCharaByIndex(3)"><img src="images/chara4.png"><p>キャラ4</p></div>
+    <div class="character" onclick="openCharaByIndex(4)"><img src="images/chara5.png"><p>キャラ5</p></div>
+    <div class="character" onclick="openCharaByIndex(5)"><img src="images/chara6.png"><p>キャラ6</p></div>
+    <div class="character" onclick="openCharaByIndex(6)"><img src="images/chara7.png"><p>キャラ7</p></div>
+    <div class="character" onclick="openCharaByIndex(7)"><img src="images/chara8.png"><p>キャラ8</p></div>
+    <div class="character" onclick="openCharaByIndex(8)"><img src="images/chara9.png"><p>キャラ9</p></div>
+    <div class="character" onclick="openCharaByIndex(9)"><img src="images/chara10.png"><p>キャラ10</p></div>
   </div>
 </section>
-
-<footer class="footer">
-  <p>© カスーモ帝国学園</p>
-</footer>
 
 <!-- モーダル -->
 <div id="chara-modal" class="modal" onclick="closeChara()">
   <div class="modal-content" onclick="event.stopPropagation()">
+
     <span class="close" onclick="closeChara()">×</span>
 
     <img id="modal-img" class="modal-img">
 
     <h3 id="modal-name"></h3>
-
     <ul class="chara-profile">
       <li id="modal-grade"></li>
       <li id="modal-class"></li>
     </ul>
-
     <p id="modal-text"></p>
 
     <div class="costume-buttons">
       <button onclick="changeCostume('uniform')">制服</button>
       <button onclick="changeCostume('casual')">私服</button>
     </div>
+
+    <div class="chara-switch">
+      <button onclick="prevChara()">◀</button>
+      <button onclick="nextChara()">▶</button>
+    </div>
+
   </div>
 </div>
 
