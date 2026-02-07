@@ -1,4 +1,16 @@
 const charaData = [
+    {
+    id: "amon",
+    name: "飯田亜門",
+    text: "不憫",
+    grade: "3年",
+    class: "C組",
+    color: "#e74fff",
+    images: {
+      uniform: "images/.png",
+      casual: "images/.png"
+    }
+  },
   {
     id: "azuma",
     name: "東馬柊",
