@@ -1,14 +1,14 @@
 const charaData = [
-    {
+  {
     id: "amon",
     name: "飯田亜門",
-    text: "不憫",
+    text: "不憫。",
     grade: "3年",
-    class: "C組",
+    className: "C組",
     color: "#e74fff",
     images: {
-      uniform: "images/.png",
-      casual: "images/.png"
+      uniform: "images/amon_uniform.png",
+      casual: "images/amon_casual.png"
     }
   },
   {
@@ -16,7 +16,7 @@ const charaData = [
     name: "東馬柊",
     text: "ただのメロ。",
     grade: "3年",
-    class: "A組",
+    className: "A組",
     color: "#4fa3ff",
     images: {
       uniform: "images/azumasyu.png",
@@ -26,29 +26,104 @@ const charaData = [
   {
     id: "motani",
     name: "茂谷恒一",
-    text: "どしはな先輩",
+    text: "どしはな先輩。",
     grade: "3年",
-    class: "B組",
+    className: "B組",
     color: "#4fff83",
     images: {
       uniform: "images/motanikoiti.png",
       casual: "images/motanikoiti.png"
     }
   },
-  // ↓ ここからダミー9人
-  ...Array.from({ length: 7 }, (_, i) => ({
-    id: `chara${i+3}`,
-    name: `キャラ${i+3}`,
-    text: "後で設定が入る。",
-    grade: "2年",
-    class: "C組",
-    color: "#88c999",
+
+  /* ===== 追加キャラ ===== */
+
+  {
+    id: "onizuka",
+    name: "鬼塚門斗",
+    text: "強気で雑、だけど情に厚い。",
+    grade: "3年",
+    className: "A組",
+    color: "#5c398a",
     images: {
-      uniform: "images/dummy.png",
-      casual: "images/dummy.png"
+      uniform: "images/onizuka_uniform.png",
+      casual: "images/onizuka_casual.png"
     }
-  }))
+  },
+  {
+    id: "yuki",
+    name: "結城ひより",
+    text: "静かで芯が強い。",
+    grade: "3年",
+    className: "C組",
+    color: "#5574bd",
+    images: {
+      uniform: "images/yuki_uniform.png",
+      casual: "images/yuki_casual.png"
+    }
+  },
+  {
+    id: "sanjouin",
+    name: "三千院朔",
+    text: "理屈派で距離感が独特。",
+    grade: "2年",
+    className: "F組",
+    color: "#c35442",
+    images: {
+      uniform: "images/saku_uniform.png",
+      casual: "images/saku_casual.png"
+    }
+  },
+  {
+    id: "mochizuki",
+    name: "望月澪",
+    text: "明るくて風みたいな存在。",
+    grade: "2年",
+    className: "F組",
+    color: "#b1eeff",
+    images: {
+      uniform: "images/mio_uniform.png",
+      casual: "images/mio_casual.png"
+    }
+  },
+  {
+    id: "uriu",
+    name: "瓜生蔓奈",
+    text: "空気を読むのがうまい。",
+    grade: "1年",
+    className: "C組",
+    color: "#5a78bf",
+    images: {
+      uniform: "images/uriu_uniform.png",
+      casual: "images/uriu_casual.png"
+    }
+  },
+  {
+    id: "suzuki",
+    name: "鈴木凛",
+    text: "負けず嫌いな努力家。",
+    grade: "1年",
+    className: "D組",
+    color: "#4850bc",
+    images: {
+      uniform: "images/rin_uniform.png",
+      casual: "images/rin_casual.png"
+    }
+  },
+  {
+    id: "motani-nao",
+    name: "茂谷直葉",
+    text: "恒一の妹。冷静。",
+    grade: "1年",
+    className: "C組",
+    color: "#6c4c76",
+    images: {
+      uniform: "images/naoha_uniform.png",
+      casual: "images/naoha_casual.png"
+    }
+  }
 ];
+
 
 let currentIndex = 0;
 let currentImages = {};
