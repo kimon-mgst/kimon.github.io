@@ -1,8 +1,12 @@
+/* ===============================
+   キャラデータ
+================================ */
+
 const charaData = [
   {
     id: "amon",
     name: "飯田亜門",
-    text: "不憫。",
+    text: "不憫",
     grade: "3年",
     className: "C組",
     color: "#e74fff",
@@ -14,7 +18,7 @@ const charaData = [
   {
     id: "azuma",
     name: "東馬柊",
-    text: "ただのメロ。",
+    text: "メロ",
     grade: "3年",
     className: "A組",
     color: "#4fa3ff",
@@ -26,7 +30,7 @@ const charaData = [
   {
     id: "motani",
     name: "茂谷恒一",
-    text: "どしはな先輩。",
+    text: "どしはな",
     grade: "3年",
     className: "B組",
     color: "#4fff83",
@@ -35,13 +39,10 @@ const charaData = [
       casual: "images/motanikoiti.png"
     }
   },
-
-  /* ===== 追加キャラ ===== */
-
   {
     id: "onizuka",
     name: "鬼塚門斗",
-    text: "強気で雑、だけど情に厚い。",
+    text: "ヤクザ",
     grade: "3年",
     className: "A組",
     color: "#5c398a",
@@ -53,7 +54,7 @@ const charaData = [
   {
     id: "yuki",
     name: "結城ひより",
-    text: "静かで芯が強い。",
+    text: "母",
     grade: "3年",
     className: "C組",
     color: "#5574bd",
@@ -65,7 +66,7 @@ const charaData = [
   {
     id: "sanjouin",
     name: "三千院朔",
-    text: "理屈派で距離感が独特。",
+    text: "世界",
     grade: "2年",
     className: "F組",
     color: "#c35442",
@@ -77,7 +78,7 @@ const charaData = [
   {
     id: "mochizuki",
     name: "望月澪",
-    text: "明るくて風みたいな存在。",
+    text: "可愛い子ぶる",
     grade: "2年",
     className: "F組",
     color: "#b1eeff",
@@ -89,7 +90,7 @@ const charaData = [
   {
     id: "uriu",
     name: "瓜生蔓奈",
-    text: "空気を読むのがうまい。",
+    text: "稲妻",
     grade: "1年",
     className: "C組",
     color: "#5a78bf",
@@ -101,7 +102,7 @@ const charaData = [
   {
     id: "suzuki",
     name: "鈴木凛",
-    text: "負けず嫌いな努力家。",
+    text: "スズラニアン",
     grade: "1年",
     className: "D組",
     color: "#4850bc",
@@ -113,7 +114,7 @@ const charaData = [
   {
     id: "motani-nao",
     name: "茂谷直葉",
-    text: "恒一の妹。冷静。",
+    text: "一番冷静",
     grade: "1年",
     className: "C組",
     color: "#6c4c76",
@@ -124,9 +125,38 @@ const charaData = [
   }
 ];
 
+/* ===============================
+   状態
+================================ */
 
 let currentIndex = 0;
 let currentImages = {};
+
+/* ===============================
+   キャラ一覧生成
+================================ */
+
+function renderCharacterList() {
+  const list = document.getElementById("character-list");
+  list.innerHTML = "";
+
+  charaData.forEach((c, index) => {
+    const div = document.createElement("div");
+    div.className = "character";
+    div.onclick = () => openCharaByIndex(index);
+
+    div.innerHTML = `
+      <img src="${c.images.uniform}" alt="${c.name}">
+      <p>${c.name}</p>
+    `;
+
+    list.appendChild(div);
+  });
+}
+
+/* ===============================
+   モーダル
+================================ */
 
 function openCharaByIndex(index) {
   const c = charaData[index];
@@ -140,8 +170,8 @@ function openCharaByIndex(index) {
     img.src = c.images.uniform;
     document.getElementById("modal-name").textContent = c.name;
     document.getElementById("modal-text").textContent = c.text;
-    document.getElementById("modal-grade").textContent = "学年：" + c.grade;
-    document.getElementById("modal-class").textContent = "クラス：" + c.class;
+    document.getElementById("modal-grade").textContent = `学年：${c.grade}`;
+    document.getElementById("modal-class").textContent = `クラス：${c.className}`;
     document.documentElement.style.setProperty("--accent", c.color);
     img.classList.add("show");
   }, 150);
@@ -173,7 +203,13 @@ function closeChara() {
   history.replaceState(null, "", location.pathname);
 }
 
+/* ===============================
+   初期化
+================================ */
+
 window.addEventListener("load", () => {
+  renderCharacterList();
+
   const hash = location.hash;
   if (hash.startsWith("#chara=")) {
     const id = hash.replace("#chara=", "");
