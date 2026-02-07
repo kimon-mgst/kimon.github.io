@@ -1,23 +1,18 @@
 :root {
   --bg-main: #f7fbff;
   --bg-sub: #ffffff;
-  --bg-accent: #eaf4ff;
-
   --text-main: #1a1a1a;
-  --text-sub: #555555;
-
+  --text-sub: #555;
   --accent: #4fa3ff;
-  --accent-dark: #2b6cb0;
 }
 
-/* ===== RESET ===== */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===== BASE ===== */
 body {
   font-family: "Noto Sans JP", sans-serif;
   background: var(--bg-main);
@@ -25,124 +20,80 @@ body {
   padding-top: 80px;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .header {
   position: fixed;
   top: 0;
   width: 100%;
   padding: 16px 40px;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.9);
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 100;
-  border-bottom: 1px solid #dbeafe;
 }
 
 .logo {
-  font-family: "Zen Kaku Gothic New", sans-serif;
   font-size: 22px;
   letter-spacing: 0.15em;
-  color: var(--accent-dark);
 }
 
 .nav {
   list-style: none;
   display: flex;
-  gap: 24px;
+  gap: 20px;
 }
 
 .nav a {
   text-decoration: none;
-  font-size: 14px;
   color: var(--text-main);
-  position: relative;
 }
 
-.nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  transition: width 0.3s;
-}
-
-.nav a:hover::after {
-  width: 100%;
-}
-
-/* ===== HERO ===== */
+/* HERO */
 .hero {
   height: calc(100vh - 80px);
-  background-image: url("images/main.jpg");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    rgba(255,255,255,0.1),
-    rgba(0,0,0,0.35)
-  );
+  background: url("images/main.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-text {
-  position: relative;
-  z-index: 1;
+  color: #fff;
   text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
-  animation: fadeIn 1.8s ease forwards;
 }
 
 .hero-text h2 {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: 38px;
-  letter-spacing: 0.1em;
-  margin-bottom: 10px;
-  color: #ffffff;
+  font-size: 36px;
+  margin-bottom: 8px;
 }
 
-.hero-text p {
-  color: #f0f8ff;
-}
-
-/* ===== SECTION ===== */
+/* SECTION */
 .section {
   padding: 100px 40px;
-  background: var(--bg-sub);
-}
-
-.section:nth-of-type(even) {
-  background: var(--bg-accent);
 }
 
 .section h2 {
-  font-family: "Zen Kaku Gothic New", sans-serif;
   font-size: 26px;
   margin-bottom: 30px;
-  letter-spacing: 0.2em;
-  color: var(--accent-dark);
 }
 
-/* ===== CHARACTER LIST ===== */
+/* NEWS */
+.news-list li {
+  margin-bottom: 10px;
+}
+
+/* CHARACTER LIST */
 .character-list {
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .character {
-  cursor: pointer;
   text-align: center;
+  cursor: pointer;
 }
 
 .character img {
@@ -150,33 +101,23 @@ body {
   height: 140px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   transition: transform 0.3s;
 }
 
 .character:hover img {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
-.character p {
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-/* ===== MODAL（完成形） ===== */
+/* MODAL */
 .modal {
+  opacity: 0;
+  pointer-events: none;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.6);
+  transition: opacity 0.3s;
   z-index: 200;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
 }
 
 .modal.active {
@@ -185,165 +126,94 @@ body {
 }
 
 .modal-content {
-  max-width: 720px;
-  width: 90%;
-  background: #ffffff;
-  padding: 30px;
-  text-align: center;
   position: relative;
-  border-radius: 12px;
-
-  transform: translateY(30px);
-  transition: transform 0.3s ease;
-}
-
-.modal.active .modal-content {
-  transform: translateY(0);
+  max-width: 720px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .modal-img {
-  width: 100%;
   max-height: 70vh;
-  object-fit: contain;
-  margin-bottom: 15px;
+  transition: opacity 0.3s;
+}
+
+.modal-img.show {
+  opacity: 1;
 }
 
 .close {
   position: absolute;
-  top: 12px;
+  top: 10px;
   right: 16px;
   font-size: 22px;
   cursor: pointer;
 }
 
-/* ===== PROFILE ===== */
 .chara-profile {
   list-style: none;
-  margin: 10px 0 15px;
-  padding: 0;
+  margin: 10px 0;
   color: var(--text-sub);
-  font-size: 14px;
 }
 
-.chara-profile li {
-  margin-bottom: 4px;
-}
-
-/* ===== COSTUME BUTTON ===== */
+/* COSTUME */
 .costume-buttons {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-top: 10px;
+  gap: 14px;
+  margin: 12px 0;
 }
 
 .costume-buttons button {
-  padding: 6px 16px;
+  padding: 6px 14px;
   border-radius: 20px;
   border: 1px solid var(--accent);
-  background: #ffffff;
-  color: var(--accent-dark);
+  background: #fff;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.costume-buttons button:hover {
+/* SWITCH（PC対応済） */
+.chara-switch {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+.chara-switch button {
+  pointer-events: auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
   background: var(--accent);
-  color: #ffffff;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 .footer {
   padding: 40px;
   text-align: center;
   font-size: 12px;
-  background: #ffffff;
   color: var(--text-sub);
 }
 
-/* ===== ANIMATION ===== */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== SMARTPHONE ===== */
-@media screen and (max-width: 768px) {
-
-  body {
-    padding-top: 64px;
-  }
-
-  .header {
-    padding: 12px 20px;
-  }
-
-  .logo {
-    font-size: 18px;
-  }
-
-  .nav {
-    gap: 14px;
-  }
-
-  .nav a {
-    font-size: 12px;
-  }
-
-  .hero {
-    height: calc(100vh - 64px);
-  }
-
-  .hero-text h2 {
-    font-size: 26px;
-  }
-
-  .section {
-    padding: 70px 20px;
-  }
-
-  .character-list {
-    justify-content: center;
-    gap: 24px;
-  }
-
-  .character img {
-    width: 120px;
-    height: 120px;
-  }
-
+/* SMARTPHONE */
+@media (max-width: 768px) {
   .modal-content {
-    padding: 20px;
+    width: 90%;
   }
-}
-.modal-img {
-  max-height: 70vh;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.modal-img.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.chara-switch {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.chara-switch button {
-  font-size: 20px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--accent-dark);
+  .modal-img {
+    width: 100%;
+    max-height: none;
+  }
 }
