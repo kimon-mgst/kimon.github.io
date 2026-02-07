@@ -23,6 +23,7 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero">
+  <!-- 背景画像はCSSで指定 -->
   <div class="hero-text">
     <h2>白線の向こう側</h2>
     <p>オリジナル創作学園物語</p>
@@ -39,7 +40,7 @@
 </section>
 
 <!-- ===== STORY ===== -->
-<section id="story" class="section">
+<section id="story" class="section dark">
   <h2>STORY</h2>
   <p>
     カスーモ帝国学園。<br>
@@ -52,15 +53,15 @@
 <section id="character" class="section">
   <h2>CHARACTER</h2>
 
-  <!-- 並び替え（必要なければ消してOK） -->
+  <!-- 並び替え -->
   <div class="sort-buttons">
     <button onclick="sortChara('default')">登場順</button>
     <button onclick="sortChara('grade')">学年順</button>
     <button onclick="sortChara('name')">名前順</button>
   </div>
 
-  <!-- キャラ一覧（JSが生成） -->
-  <div class="character-list" id="character-list"></div>
+  <!-- ★ JSが自動生成する領域 -->
+  <div id="character-list" class="character-list"></div>
 </section>
 
 <!-- ===== FOOTER ===== -->
