@@ -9,29 +9,100 @@
 
 <body>
 
+<!-- ===== HEADER ===== -->
 <header class="header">
   <h1 class="logo">KASUUMO</h1>
+  <nav>
+    <ul class="nav">
+      <li><a href="#news">NEWS</a></li>
+      <li><a href="#story">STORY</a></li>
+      <li><a href="#character">CHARACTER</a></li>
+    </ul>
+  </nav>
 </header>
 
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-text">
+    <h2>白線の向こう側</h2>
+    <p>オリジナル創作学園物語</p>
+  </div>
+</section>
+
+<!-- ===== NEWS ===== -->
+<section id="news" class="section">
+  <h2>NEWS</h2>
+  <ul class="news-list">
+    <li>2026.02.01 公式サイト公開</li>
+    <li>2026.01.20 キャラクター情報更新</li>
+  </ul>
+</section>
+
+<!-- ===== STORY ===== -->
+<section id="story" class="section dark">
+  <h2>STORY</h2>
+  <p>
+    カスーモ帝国学園。<br>
+    少し変で、少し眩しい。<br>
+    青春の真ん中で交差する、彼らの物語。
+  </p>
+</section>
+
+<!-- ===== CHARACTER ===== -->
 <section id="character" class="section">
   <h2>CHARACTER</h2>
 
   <div class="character-list">
-    <!-- 10人分 -->
-    <div class="character" onclick="openCharaByIndex(0)"><img src="images/syu.png"><p>東馬柊</p></div>
-    <div class="character" onclick="openCharaByIndex(1)"><img src="images/koiti.png"><p>茂谷恒一</p></div>
-    <div class="character" onclick="openCharaByIndex(2)"><img src="images/chara3.png"><p>キャラ3</p></div>
-    <div class="character" onclick="openCharaByIndex(3)"><img src="images/chara4.png"><p>キャラ4</p></div>
-    <div class="character" onclick="openCharaByIndex(4)"><img src="images/chara5.png"><p>キャラ5</p></div>
-    <div class="character" onclick="openCharaByIndex(5)"><img src="images/chara6.png"><p>キャラ6</p></div>
-    <div class="character" onclick="openCharaByIndex(6)"><img src="images/chara7.png"><p>キャラ7</p></div>
-    <div class="character" onclick="openCharaByIndex(7)"><img src="images/chara8.png"><p>キャラ8</p></div>
-    <div class="character" onclick="openCharaByIndex(8)"><img src="images/chara9.png"><p>キャラ9</p></div>
-    <div class="character" onclick="openCharaByIndex(9)"><img src="images/chara10.png"><p>キャラ10</p></div>
+    <div class="character" onclick="openCharaByIndex(0)">
+      <img src="images/syu.png">
+      <p>東馬柊</p>
+    </div>
+    <div class="character" onclick="openCharaByIndex(1)">
+      <img src="images/koiti.png">
+      <p>茂谷恒一</p>
+    </div>
+
+    <div class="character" onclick="openCharaByIndex(2)">
+      <img src="images/chara3.png">
+      <p>キャラ3</p>
+    </div>
+    <div class="character" onclick="openCharaByIndex(3)">
+      <img src="images/chara4.png">
+      <p>キャラ4</p>
+    </div>
+    <div class="character" onclick="openCharaByIndex(4)">
+      <img src="images/chara5.png">
+      <p>キャラ5</p>
+    </div>
+    <div class="character" onclick="openCharaByIndex(5)">
+      <img src="images/chara6.png">
+      <p>キャラ6</p>
+    </div>
+    <div class="character" onclick="openCharaByIndex(6)">
+      <img src="images/chara7.png">
+      <p>キャラ7</p>
+    </div>
+    <div class="character" onclick="openCharaByIndex(7)">
+      <img src="images/chara8.png">
+      <p>キャラ8</p>
+    </div>
+    <div class="character" onclick="openCharaByIndex(8)">
+      <img src="images/chara9.png">
+      <p>キャラ9</p>
+    </div>
+    <div class="character" onclick="openCharaByIndex(9)">
+      <img src="images/chara10.png">
+      <p>キャラ10</p>
+    </div>
   </div>
 </section>
 
-<!-- モーダル -->
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <p>© カスーモ帝国学園</p>
+</footer>
+
+<!-- ===== CHARACTER MODAL ===== -->
 <div id="chara-modal" class="modal" onclick="closeChara()">
   <div class="modal-content" onclick="event.stopPropagation()">
 
@@ -40,10 +111,12 @@
     <img id="modal-img" class="modal-img">
 
     <h3 id="modal-name"></h3>
+
     <ul class="chara-profile">
       <li id="modal-grade"></li>
       <li id="modal-class"></li>
     </ul>
+
     <p id="modal-text"></p>
 
     <div class="costume-buttons">
