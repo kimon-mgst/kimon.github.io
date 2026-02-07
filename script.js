@@ -4,7 +4,7 @@
 
 const charaData = [
   {
-    id: "amon",
+    id: "iida",
     name: "飯田亜門",
     text: "不憫。",
     grade: "3年",
@@ -30,7 +30,7 @@ const charaData = [
     }
   },
   {
-    id: "motani",
+    id: "motani-kou",
     name: "茂谷恒一",
     text: "どしはな先輩。",
     grade: "3年",
@@ -72,7 +72,7 @@ const charaData = [
     }
   },
   {
-    id: "sanjouin",
+    id: "sanzenin",
     name: "三千院朔",
     text: "理屈派で距離感が独特。",
     grade: "2年",
@@ -98,7 +98,7 @@ const charaData = [
     }
   },
   {
-    id: "uriu",
+    id: "uryu",
     name: "瓜生蔓奈",
     text: "空気を読むのがうまい。",
     grade: "1年",
