@@ -344,3 +344,22 @@ body {
   border-top: 1px solid #d6dde5;
   color: #666666;
 }
+
+/* =========================
+   SMARTPHONE（〜768px）
+========================= */
+@media screen and (max-width: 768px) {
+
+  /* ===== HEADER ===== */
+  .header {
+    flex-direction: column;
+    padding: 12px 16px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+
+  .nav {
+    gap: 
