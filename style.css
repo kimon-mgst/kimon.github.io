@@ -363,3 +363,28 @@ body {
 
   .nav {
     gap: 
+
+/* =========================
+   スマホ：上部ナビ修正
+========================= */
+@media screen and (max-width: 768px) {
+
+  header.header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;        /* ← はみ出し防止 */
+    justify-content: center;
+    gap: 12px;
+    padding: 8px 0;
+  }
+
+  .nav li a {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    white-space: nowrap;   /* 文字崩れ防止 */
+  }
+}
