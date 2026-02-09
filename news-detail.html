@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>NEWS｜カスーモ帝国学園</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <h1 class="logo">KASUUMO</h1>
+  <nav>
+    <ul class="nav">
+      <li><a href="index.html#news">NEWS</a></li>
+      <li><a href="index.html#story">STORY</a></li>
+      <li><a href="index.html#character">CHARACTER</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===== NEWS DETAIL ===== -->
+<section class="section news-detail">
+  <p class="news-date" id="news-date"></p>
+  <h2 class="news-title" id="news-title"></h2>
+
+  <div class="news-body" id="news-body"></div>
+
+  <div class="news-back">
+    <a href="index.html#news">← NEWS一覧へ戻る</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© カスーモ帝国学園</p>
+</footer>
+
+<script>
+  const newsData = {
+    "20260201": {
+      date: "2026.02.01",
+      title: "ノリで作ってみた。",
+      body: `
+        <p>
+          カスーモ帝国学園の公式サイトを、  
+          思いつきと勢いで立ち上げてみました。
+        </p>
+        <p>
+          まだ荒削りですが、  
+          世界観とキャラクターを少しずつ公開していく予定です。
+        </p>
+      `
+    },
+
+    "20260209": {
+      date: "2026.02.09",
+      title: "創作を手伝ってくれる人募集中です。",
+      body: `
+        <p>
+          イラスト・文章・設定づくりなど、  
+          一緒に作品を育ててくれる方を募集しています。
+        </p>
+        <p>
+          興味がある方は、ぜひ声をかけてください。
+        </p>
+      `
+    },
+
+    "20260210": {
+      date: "2026.02.10",
+      title: "協力してくれる方々への作品詳細を載せました。",
+      body: `
+        <p>
+          協力してくださる方向けに、  
+          世界観・キャラクター設定・今後の展開案をまとめました。
+        </p>
+        <p>
+          より深く関わっていただける内容になっています。
+        </p>
+      `
+    }
+  };
+
+  const params = new URLSearchParams(location.search);
+  const id = params.get("id");
+
+  if (newsData[id]) {
+    document.getElementById("news-date").textContent = newsData[id].date;
+    document.getElementById("news-title").textContent = newsData[id].title;
+    document.getElementById("news-body").innerHTML = newsData[id].body;
+  }
+</script>
+
+</body>
+</html>
