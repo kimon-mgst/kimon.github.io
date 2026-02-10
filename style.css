@@ -79,6 +79,7 @@ nav {
   font-size: 14px;
   color: var(--accent);
   white-space: nowrap;
+  text-decoration: none;
 }
 
 .nav a:hover {
