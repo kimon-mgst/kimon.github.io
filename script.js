@@ -217,7 +217,8 @@ function openCharaByIndex(index) {
     document.getElementById("modal-text").textContent = c.text;
     document.getElementById("modal-grade").textContent = "学年：" + c.grade;
     document.getElementById("modal-class").textContent = "クラス：" + c.className;
-    document.getElementById("chara-modal").style.setProperty("--chara-accent", c.color);
+    document.getElementById("chara-modal")
+      .style.setProperty("--chara-accent", c.color);
     img.classList.add("show");
   }, 150);
 
