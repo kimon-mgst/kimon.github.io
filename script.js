@@ -1,7 +1,3 @@
-/* =========================
-   CHARACTER DATA（完成版）
-========================= */
-
 const charaData = [
   {
     id: "amon",
@@ -45,9 +41,6 @@ const charaData = [
       casual: "images/motanikoiti.png"
     }
   },
-
-  /* ===== 追加キャラ ===== */
-
   {
     id: "onizuka",
     name: "鬼塚門斗",
@@ -62,7 +55,7 @@ const charaData = [
       casual: "images/onizuka_casual.png"
     }
   },
-   {
+  {
     id: "yuki",
     name: "結城ひより",
     yomi: "ゆうき",
@@ -148,17 +141,9 @@ const charaData = [
   }
 ];
 
-/* =========================
-   STATE
-========================= */
-
 let currentIndex = 0;
 let currentImages = {};
 let defaultOrder = [...charaData];
-
-/* =========================
-   LIST RENDER
-========================= */
 
 function renderCharacterList(list) {
   const area = document.getElementById("character-list");
@@ -176,10 +161,6 @@ function renderCharacterList(list) {
     area.appendChild(div);
   });
 }
-
-/* =========================
-   SORT
-========================= */
 
 function sortChara(type) {
   let sorted = [...charaData];
@@ -199,10 +180,6 @@ function sortChara(type) {
   renderCharacterList(sorted);
 }
 
-/* =========================
-   MODAL
-========================= */
-
 function openCharaByIndex(index) {
   const c = charaData[index];
   currentIndex = index;
@@ -217,11 +194,21 @@ function openCharaByIndex(index) {
     document.getElementById("modal-text").textContent = c.text;
     document.getElementById("modal-grade").textContent = "学年：" + c.grade;
     document.getElementById("modal-class").textContent = "クラス：" + c.className;
-    document.documentElement.style.setProperty("--accent", c.color);
+
+    /* ★ キャラ色だけ変更 */
+    document.documentElement.style.setProperty("--accent-chara", c.color);
+
     img.classList.add("show");
   }, 150);
 
   document.getElementById("chara-modal").classList.add("active");
+}
+
+function closeChara() {
+  document.getElementById("chara-modal").classList.remove("active");
+
+  /* ★ サイト色は戻す */
+  document.documentElement.style.setProperty("--accent-chara", "#4a7ebb");
 }
 
 function changeCostume(type) {
@@ -241,14 +228,6 @@ function prevChara() {
 function nextChara() {
   openCharaByIndex((currentIndex + 1) % charaData.length);
 }
-
-function closeChara() {
-  document.getElementById("chara-modal").classList.remove("active");
-}
-
-/* =========================
-   INIT
-========================= */
 
 window.addEventListener("load", () => {
   renderCharacterList(charaData);
