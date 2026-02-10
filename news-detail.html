@@ -1,61 +1,42 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>NEWS | カスーモ帝国学園</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<header class="header">
-  <h1 class="logo">KASUUMO</h1>
-  <nav>
-    <ul class="nav">
-      <li><a href="index.html#news">NEWS</a></li>
-      <li><a href="index.html#story">STORY</a></li>
-      <li><a href="index.html#character">CHARACTER</a></li>
-      <li><a href="index.html#staff">STAFF</a></li>
-    </ul>
-  </nav>
-</header>
-
-<section class="section">
-  <h2 id="news-title">NEWS</h2>
-  <p id="news-date"></p>
-  <div id="news-body"></div>
-
-  <p style="margin-top:40px;">
-    <a href="index.html#news">← NEWS一覧へ戻る</a>
-  </p>
-</section>
-
 <script>
 const newsData = {
   "20260201": {
     title: "ノリで作ってみた。",
     date: "2026.02.01",
-    body: "勢いだけで公式サイトを作ってみました。ここから色々増えていく予定です。"
+    body: "<p>勢いだけで公式サイトを作ってみました。ここから色々増えていく予定です。</p>"
   },
   "20260209": {
     title: "創作を手伝ってくれる人募集中です。",
     date: "2026.02.09",
-    body: "作品を一緒に世界を広げてくれる方を募集しています。"
+    body: "<p>作品を一緒に世界を広げてくれる方を募集しています。</p>"
   },
   "20260210": {
     title: "協力してくれる方々へ",
     date: "2026.02.10",
     body: `
       <p>
-       初めまして、作品を作ってる人です。<br>
-       この作品に協力してくれる方に向けたものになります。拝読して頂けると幸いです。<br>
-       この作品は鯖メンツを勝手にキャラ化させてノリで始まり、皆が自分達自身で二次創作をし始めたので私自身が「このままでは勿体ない」と思い、行動に移しとりあえず形にするべくHPを作りました。<br>
-       作品のメインテーマは学園、青春、野球です。そして高校生の日常のような世界観を目指しています。<br>
-       今はまだ曖昧な形で存在していますが、ちゃんと完全体で完成させると意気込んでます。<br>
-       キャラクター達もちゃんと言語化は未だ出来ていませんが「こんなキャラクター」というものがちゃんとあるので「これってどう思う？」など聞いてくだされば、「この子ならこう動く」などお答えできます。<br>
-       こちらからの声掛けにはなると思いますが協力して頂けると幸いです、よろしくお願いします。
+        初めまして、作品を作ってる人です。<br>
+        この作品に協力してくれる方に向けたものになります。拝読して頂けると幸いです。<br><br>
+
+        この作品は鯖メンツを勝手にキャラ化させてノリで始まり、
+        皆が自分達自身で二次創作をし始めたので私自身が「このままでは勿体ない」と思い、
+        行動に移しとりあえず形にするべくHPを作りました。<br><br>
+
+        作品のメインテーマは学園、青春、野球です。
+        そして高校生の日常のような世界観を目指しています。<br><br>
+
+        今はまだ曖昧な形で存在していますが、
+        ちゃんと完全体で完成させると意気込んでます。<br><br>
+
+        キャラクター達もちゃんと言語化は未だ出来ていませんが、
+        「こんなキャラクター」というものがちゃんとあるので
+        「これってどう思う？」など聞いてくだされば、
+        「この子ならこう動く」などお答えできます。<br><br>
+
+        こちらからの声掛けにはなると思いますが、
+        協力して頂けると幸いです、よろしくお願いします。
       </p>
+    `
   }
 };
 
@@ -65,11 +46,8 @@ const id = params.get("id");
 if (newsData[id]) {
   document.getElementById("news-title").textContent = newsData[id].title;
   document.getElementById("news-date").textContent = newsData[id].date;
-  document.getElementById("news-body").textContent = newsData[id].body;
+  document.getElementById("news-body").innerHTML = newsData[id].body;
 } else {
   document.getElementById("news-title").textContent = "記事が見つかりません";
 }
 </script>
-
-</body>
-</html>
