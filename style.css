@@ -283,91 +283,72 @@ nav {
 }
 
 /* =========================
-   CHARACTER SWITCH
+   CHARACTER SWITCH（修正版）
 ========================= */
+
+.modal-content {
+  position: relative; /* ← これ重要 */
+}
+
+/* 矢印コンテナ */
 .chara-switch {
   position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-
-  transform: translateY(-50%);
-  display: flex;
-  justify-content: space-between;
-
-  padding: 0 16px;
-  pointer-events: none;
+  inset: 0;                 /* モーダル全体に広げる */
+  pointer-events: none;     /* 背景クリックを通す */
 }
 
+/* 共通ボタン */
 .chara-switch button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   pointer-events: auto;
-  width: 42px;
-  height: 42px;
+
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: none;
-  background: var(--accent);
-  color: #ffffff;
+
+  background: var(--chara-accent);
+  color: #fff;
   font-size: 20px;
   cursor: pointer;
+
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* ← 左 */
+.chara-switch .prev {
+  left: -22px;   /* 半分はみ出しで“端感” */
+}
+
+/* → 右 */
+.chara-switch .next {
+  right: -22px;
+}
+
+/* ホバー */
+.chara-switch button:hover {
+  transform: translateY(-50%) scale(1.08);
 }
 
 /* =========================
-   FOOTER
+   SMARTPHONE（重要修正）
 ========================= */
-.footer {
-  padding: 40px;
-  text-align: center;
-  font-size: 12px;
-  color: var(--text-sub);
-  background: #ffffff;
-  border-top: 1px solid #d6dde5;
-}
 
-/* =========================
-   SMARTPHONE
-========================= */
 @media screen and (max-width: 768px) {
 
-  body {
-    padding-top: 70px;
-  }
-
-  .header {
-    flex-direction: column;
-    padding: 12px 16px;
-  }
-
-  .logo {
-    margin-bottom: 6px;
-    font-size: 1.4rem;
-  }
-
-  .nav {
-    width: 100%;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .hero-text h2 {
-    font-size: 26px;
-  }
-
-  .section {
-    padding: 70px 20px;
-  }
-
-  .character img {
-    width: 120px;
-    height: 120px;
-  }
-
-  .modal-content {
-    padding: 20px;
-  }
-
+  /* ← ここが前の不具合原因 */
   .chara-switch {
-    position: static;
-    transform: none;
-    margin-top: 12px;
+    position: absolute;   /* ← static にしない！！ */
+  }
+
+  .chara-switch .prev {
+    left: -14px;
+  }
+
+  .chara-switch .next {
+    right: -14px;
   }
 }
