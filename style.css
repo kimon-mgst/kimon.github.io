@@ -79,7 +79,6 @@ nav {
   font-size: 14px;
   color: var(--accent);
   white-space: nowrap;
-  text-decoration: none;
 }
 
 .nav a:hover {
@@ -182,91 +181,193 @@ nav {
 }
 
 /* =========================
-   MODAL 基準
+   MODAL
 ========================= */
-
-.modal-content {
-  position: relative; /* ← absoluteの基準 */
-}
-
-/* =========================
-   CHARACTER SWITCH（全体）
-========================= */
-
-.chara-switch {
-  position: absolute;
+.modal {
+  position: fixed;
   inset: 0;
-  pointer-events: none;
-  z-index: 5;
-}
-
-/* =========================
-   矢印ボタン共通
-========================= */
-
-.chara-switch button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: auto;
-
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: none;
-
-  background: var(--chara-accent, #4a7ebb);
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-
+  background: rgba(0,0,0,0.6);
   display: flex;
   align-items: center;
   justify-content: center;
 
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  transition: transform 0.2s ease, background 0.2s ease;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  z-index: 200;
 }
 
-.chara-switch button:hover {
-  transform: translateY(-50%) scale(1.08);
+.modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 720px;
+  max-height: 90vh;
+
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 28px;
+  text-align: center;
+
+  overflow-y: auto;
+}
+
+.modal-img {
+  max-height: 60vh;
+  max-width: 100%;
+  margin-bottom: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-img.show {
+  opacity: 1;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--accent);
+}
+
+.close:hover {
+  color: var(--accent-dark);
 }
 
 /* =========================
-   左矢印
+   PROFILE
 ========================= */
+.chara-profile {
+  list-style: none;
+  margin: 10px 0;
+  color: var(--text-sub);
+}
 
-.chara-switch .prev {
-  left: -24px;
+#modal-text {
+  margin-top: 10px;
+  line-height: 1.8;
+  word-break: break-word;
 }
 
 /* =========================
-   右矢印
+   COSTUME BUTTON
 ========================= */
+.costume-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 12px 0;
+}
 
-.chara-switch .next {
-  right: -24px;
+.costume-buttons button {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--accent);
+  background: #ffffff;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.costume-buttons button:hover {
+  background: var(--accent);
+  color: #ffffff;
 }
 
 /* =========================
-   スマホ最適化
+   CHARACTER SWITCH
 ========================= */
+.chara-switch {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
 
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0 16px;
+  pointer-events: none;
+}
+
+.chara-switch button {
+  pointer-events: auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  padding: 40px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-sub);
+  background: #ffffff;
+  border-top: 1px solid #d6dde5;
+}
+
+/* =========================
+   SMARTPHONE
+========================= */
 @media screen and (max-width: 768px) {
 
-  .chara-switch .prev {
-    left: -14px;
+  body {
+    padding-top: 70px;
   }
 
-  .chara-switch .next {
-    right: -14px;
+  .header {
+    flex-direction: column;
+    padding: 12px 16px;
   }
 
-  .chara-switch button {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
+  .logo {
+    margin-bottom: 6px;
+    font-size: 1.4rem;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .hero-text h2 {
+    font-size: 26px;
+  }
+
+  .section {
+    padding: 70px 20px;
+  }
+
+  .character img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+
+  .chara-switch {
+    position: static;
+    transform: none;
+    margin-top: 12px;
   }
 }
 
