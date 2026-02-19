@@ -27,7 +27,7 @@ const charaData = [
     color: "#4fa3ff",
     icon: "images/syu.png",
     images: {
-      uniform: "images/syu_seihuku.png",
+      uniform: "images/syu_seihuku.PNG",
       casual: "images/azumasyu.png"
     }
   },
@@ -41,7 +41,7 @@ const charaData = [
     color: "#4fff83",
     icon: "images/koiti.png",
     images: {
-      uniform: "images/kou_seihuku.png",
+      uniform: "images/kou_seihuku.PNG",
       casual: "images/motanikoiti.png"
     }
   },
