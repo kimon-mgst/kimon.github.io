@@ -182,167 +182,78 @@ nav {
 }
 
 /* =========================
-   MODAL
-========================= */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-
-  z-index: 200;
-}
-
-.modal.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.modal-content {
-  position: relative;
-  width: 90%;
-  max-width: 720px;
-  max-height: 90vh;
-
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 28px;
-  text-align: center;
-
-  overflow-y: auto;
-}
-
-.modal-img {
-  max-height: 60vh;
-  max-width: 100%;
-  margin-bottom: 12px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.modal-img.show {
-  opacity: 1;
-}
-
-.close {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  font-size: 22px;
-  cursor: pointer;
-  color: var(--accent);
-}
-
-.close:hover {
-  color: var(--accent-dark);
-}
-
-/* =========================
-   PROFILE
-========================= */
-.chara-profile {
-  list-style: none;
-  margin: 10px 0;
-  color: var(--text-sub);
-}
-
-#modal-text {
-  margin-top: 10px;
-  line-height: 1.8;
-  word-break: break-word;
-}
-
-/* =========================
-   COSTUME BUTTON
-========================= */
-.costume-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin: 12px 0;
-}
-
-.costume-buttons button {
-  padding: 6px 14px;
-  border-radius: 20px;
-  border: 1px solid var(--accent);
-  background: #ffffff;
-  color: var(--accent);
-  cursor: pointer;
-}
-
-.costume-buttons button:hover {
-  background: var(--accent);
-  color: #ffffff;
-}
-
-/* =========================
-   CHARACTER SWITCH（修正版）
+   MODAL 基準
 ========================= */
 
 .modal-content {
-  position: relative; /* ← これ重要 */
+  position: relative; /* ← absoluteの基準 */
 }
 
-/* 矢印コンテナ */
+/* =========================
+   CHARACTER SWITCH（全体）
+========================= */
+
 .chara-switch {
   position: absolute;
-  inset: 0;                 /* モーダル全体に広げる */
-  pointer-events: none;     /* 背景クリックを通す */
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
 }
 
-/* 共通ボタン */
+/* =========================
+   矢印ボタン共通
+========================= */
+
 .chara-switch button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   pointer-events: auto;
 
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   border: none;
 
-  background: var(--chara-accent);
-  color: #fff;
+  background: var(--chara-accent, #4a7ebb);
+  color: #ffffff;
   font-size: 20px;
+  font-weight: bold;
   cursor: pointer;
 
-  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
-/* ← 左 */
-.chara-switch .prev {
-  left: -22px;   /* 半分はみ出しで“端感” */
-}
-
-/* → 右 */
-.chara-switch .next {
-  right: -22px;
-}
-
-/* ホバー */
 .chara-switch button:hover {
   transform: translateY(-50%) scale(1.08);
 }
 
 /* =========================
-   SMARTPHONE（重要修正）
+   左矢印
+========================= */
+
+.chara-switch .prev {
+  left: -24px;
+}
+
+/* =========================
+   右矢印
+========================= */
+
+.chara-switch .next {
+  right: -24px;
+}
+
+/* =========================
+   スマホ最適化
 ========================= */
 
 @media screen and (max-width: 768px) {
-
-  /* ← ここが前の不具合原因 */
-  .chara-switch {
-    position: absolute;   /* ← static にしない！！ */
-  }
 
   .chara-switch .prev {
     left: -14px;
@@ -351,4 +262,11 @@ nav {
   .chara-switch .next {
     right: -14px;
   }
+
+  .chara-switch button {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
 }
+
