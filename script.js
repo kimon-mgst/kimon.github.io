@@ -8,8 +8,6 @@ const charaData = [
     name: "飯田亜門",
     yomi: "いいだ",
     text:"チーム内で一番不憫",
-    text:"一応エースではあるがエースだと思われてない",
-    text:"東馬とは幼馴染",
     grade: "3年",
     className: "C組",
     color: "#e74fff",
